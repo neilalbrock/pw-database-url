@@ -51,14 +51,14 @@ def parse(url):
 
     # Update with environment configuration.
     config.update({
-        'NAME': path,
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'name': path,
+        'user': url.username,
+        'password': url.password,
+        'host': url.hostname,
+        'port': url.port,
     })
 
     if url.scheme in SCHEMES:
-        config['ENGINE'] = SCHEMES[url.scheme]
+        config['engine'] = SCHEMES[url.scheme]
 
     return config
