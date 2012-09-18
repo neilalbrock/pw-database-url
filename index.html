@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>pw-database-url by neilalbrock</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>pw-database-url</h1>
+        <h2>Use Database URLs in your Peewee ORM Application.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/neilalbrock/pw-database-url/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/neilalbrock/pw-database-url/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/neilalbrock/pw-database-url" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2>pw-database-wuuut?</h2>
+
+<p>This simple Python utility allows you to utilize the
+<code>12factor &lt;http://www.12factor.net/backing-services&gt;</code> inspired
+<code>DATABASE_URL</code> environment variable to configure your Peewee ORM application.</p>
+
+<p>All credit goes to Kenneth Reitz for this one, as it's a direct
+port of his <code>dj-database-url</code> utility for Django apps.</p>
+
+<h2>Usage</h2>
+
+<p>Configure your database from <code>DATABASE_URL</code></p>
+
+<pre><code>DATABASE = pw_database_url.config()
+</code></pre>
+
+<p>Parse an arbitrary Database URL</p>
+
+<pre><code>DATABASE = pw_database_url.parse('postgres://...')
+</code></pre>
+
+<h2>Supported databases</h2>
+
+<p>Support currently exists for PostgreSQL, MySQL and SQLite.</p>
+
+<p>SQLite connects to file based databases. The same URL format is used, omitting
+the hostname, and using the "file" portion as the filename of the database.
+This has the effect of four slashes being present for an absolute file path:
+<code>sqlite:////full/path/to/your/database/file.sqlite</code>.</p>
+
+<h2>Installation</h2>
+
+<pre><code>$ pip install pw-database-url
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
