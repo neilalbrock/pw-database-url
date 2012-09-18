@@ -37,10 +37,5 @@ nosetests.xml
 .shell_history
 
 #Dev
-env
-dev
 *.tmproj
 *.sublime*
-hack_*.*
-
-#Config

@@ -35,4 +35,4 @@ Installation
 
 Installation is simple too::
 
-    $ pip install git+git://github.com/neilalbrock/pw-database-url.git
+    $ pip install pw-database-url
