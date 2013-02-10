@@ -10,6 +10,7 @@ except ImportError:
 # Register database schemes in URLs.
 urlparse.uses_netloc.append('postgres')
 urlparse.uses_netloc.append('postgresql')
+urlparse.uses_netloc.append('postgresext')
 urlparse.uses_netloc.append('mysql')
 urlparse.uses_netloc.append('mysql2')
 urlparse.uses_netloc.append('sqlite')
@@ -19,6 +20,7 @@ DEFAULT_ENV = 'DATABASE_URL'
 SCHEMES = {
     'postgres': 'peewee.PostgresqlDatabase',
     'postgresql': 'peewee.PostgresqlDatabase',
+    'postgresext': 'playhouse.postgres_ext.PostgresqlExtDatabase',
     'mysql': 'peewee.MySQLDatabase',
     'mysql2': 'peewee.MySQLDatabase',
     'sqlite': 'peewee.SqliteDatabase'

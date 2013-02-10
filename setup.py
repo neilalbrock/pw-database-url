@@ -27,6 +27,10 @@ Supported databases
 
 Support currently exists for PostgreSQL, MySQL and SQLite.
 
+In addition, support for Postgres specific features can be enabled by using the
+``postgresext://`` pattern. This will give you access to the HStoreField type.
+See the `peewee docs <http://peewee.readthedocs.org/en/latest/peewee/playhouse.html#postgresql-hstore>`_ for usage information and examples.
+
 SQLite connects to file based databases. The same URL format is used, omitting
 the hostname, and using the "file" portion as the filename of the database.
 This has the effect of four slashes being present for an absolute file path:
@@ -39,7 +43,7 @@ from setuptools import setup
 
 setup(
     name='pw-database-url',
-    version='0.1.0',
+    version='0.2.0',
     url='https://github.com/neilalbrock/pw-database-url',
     license='BSD',
     author='Neil Albrock',
