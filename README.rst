@@ -20,6 +20,13 @@ Parse an arbitrary Database URL::
 
     DATABASE = pw_database_url.parse('postgres://...')
 
+Multiple databases::
+
+    os.environ.setdefault('DB1_DATABASE_URL', 'postgres://user1:pass1@host-1.localhost.com:5432/test_db')
+    os.environ.setdefault('DB2_DATABASE_URL', 'mysql://user2:pass2@host-2.localhost.com:3306/test_db')
+
+    DATABASES = dj_database_url.config()
+
 Supported databases
 -------------------
 
