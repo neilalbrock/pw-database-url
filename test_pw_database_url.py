@@ -6,6 +6,11 @@ import pw_database_url
 
 
 class DatabaseTestSuite(unittest.TestCase):
+    def setUp(self):
+        # clear env
+        for k, v in os.environ.items():
+            if k.endswith(pw_database_url.DEFAULT_ENV):
+                del os.environ[k]
 
     def test_truth(self):
         assert True
@@ -58,6 +63,23 @@ class DatabaseTestSuite(unittest.TestCase):
         assert url['password'] == 'wegauwhgeuioweg'
         assert url['port'] == 5431
 
+    def test_multiple_database_parsing(self):
+        os.environ.setdefault('DATABASE_URL', 'postgres://user1:pass1@host-1.localhost.com:5432/test_db')
+        os.environ.setdefault('DB2_DATABASE_URL', 'mysql://user2:pass2@host-2.localhost.com:3306/test_db')
+
+        databases = pw_database_url.config()
+
+        assert databases['default']['name'] == 'test_db'
+        assert databases['default']['host'] == 'host-1.localhost.com'
+        assert databases['default']['user'] == 'user1'
+        assert databases['default']['password'] == 'pass1'
+        assert databases['default']['port'] == 5432
+
+        assert databases['db2']['name'] == 'test_db'
+        assert databases['db2']['host'] == 'host-2.localhost.com'
+        assert databases['db2']['user'] == 'user2'
+        assert databases['db2']['password'] == 'pass2'
+        assert databases['db2']['port'] == 3306
 
 if __name__ == '__main__':
     unittest.main()
